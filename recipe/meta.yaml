@@ -1,4 +1,4 @@
-{% set version = "0.2.4" %}
+{% set version = "0.2.5" %}
 
 package:
   name: standard_names
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/csdms/standard_names/archive/v{{ version }}.tar.gz
-  sha256: 20f53a9201b11f295d9f7b15fd96b217d4c3e2676d30f12e56033909c2bc8d49
+  sha256: bb2978fb15df97f4f51cb9fae7b9a9c4c7ed2692264df6b5c23bf9023b221f8c
 
 build:
   noarch: python
