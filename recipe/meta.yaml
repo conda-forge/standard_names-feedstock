@@ -1,4 +1,4 @@
-{% set version = "0.2.5" %}
+{% set version = "0.2.9" %}
 
 package:
   name: standard_names
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/csdms/standard_names/archive/v{{ version }}.tar.gz
-  sha256: bb2978fb15df97f4f51cb9fae7b9a9c4c7ed2692264df6b5c23bf9023b221f8c
+  sha256: 8433bd157ae470d750cc1482726fe812744efe788df87a87ebbccba6b036c455
 
 build:
   noarch: python
@@ -20,7 +20,7 @@ build:
     - snvalidate = standard_names.cmd.snvalidate:run
 
 requirements:
-  build:
+  host:
     - python
     - pip
   run:
