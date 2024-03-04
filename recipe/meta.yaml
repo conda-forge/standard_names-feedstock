@@ -13,33 +13,34 @@ build:
   number: 0
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
   entry_points:
-    - snbuild = standard_names.cmd.snbuild:run
-    - sndump = standard_names.cmd.sndump:run
-    - snscrape = standard_names.cmd.snscrape:run
-    - snsql = standard_names.cmd.snsql:run
-    - snvalidate = standard_names.cmd.snvalidate:run
+    - standard-names = standard_names.cli.main:main
 
 requirements:
   host:
-    - python
+    - python >=3.10
     - pip
   run:
-    - python
-    - pyyaml
-    - six
+    - python >=3.10
+    - packaging
+    - pyparsing
 
 test:
-  requires:
-    - pytest
   imports:
     - standard_names
   commands:
-    - snbuild --help
-    - sndump --help
-    - snscrape --help
-    - snsql --help
-    - snvalidate --help
-    - pytest --pyargs standard_names --doctest-modules -o doctest_optionflags="NORMALIZE_WHITESPACE IGNORE_EXCEPTION_DETAIL ALLOW_UNICODE"
+    - standard-names --help
+    - standard-names --version
+    - standard-names build --help
+    - standard-names build
+    - standard-names dump --help
+    - standard-names dump
+    - standard-names scrape --help
+    - standard-names scrape
+    - standard-names sql --help
+    - standard-names sql
+    - standard-names validate --help
+    - standard-names validate
+
 
 about:
   home: https://github.com/csdms/standard_names
