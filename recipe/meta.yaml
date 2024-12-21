@@ -1,3 +1,4 @@
+{% set python_min = '3.10' %}
 {% set version = "0.2.9" %}
 
 package:
@@ -10,21 +11,23 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
   entry_points:
     - standard-names = standard_names.cli.main:main
 
 requirements:
   host:
-    - python >=3.10
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.10
+    - python >={{ python_min }}
     - packaging
     - pyparsing
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - standard_names
   commands:
